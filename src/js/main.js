@@ -12,7 +12,7 @@ $(function() {
         $('#heroes').html(_.template(infoTemplate)(
             {
                 heroes: JSON.parse(heroes),
-                imagePath: 'asd'
+                imagePath: 'https://overwatch-data.herokuapp.com/img/heroes/'
             }
         ));
     }

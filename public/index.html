@@ -13,13 +13,14 @@
 
 		<script id="t-heroes" type="text/template">
 			<% _.each(heroes, function(hero) { %>
-			<%= hero.name %>
-				<div class="inner">
+				<div class="hero">
 					<div class="left">
-						<img src="<%= hero.picture %>"/>
+						<img src="<%= imagePath %><%= hero.picture %>"/>
+						<div class="title">
+							<p class="name"><%= hero.name %></p>
+						</div>
 					</div>
 					<div class="right">
-						<h2><%= hero.name %></h2>
 						<div id="abilities">
 							<% _.each(hero.abilities, function(ability) { %>
 								<div class="ability">
