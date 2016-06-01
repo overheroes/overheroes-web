@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<title>OverHeroes!</title>
+<html>
+	<meta charset="utf-8">
+	<head>
+		<link rel="stylesheet" href="css/overheroes.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+		<script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.13.1/lodash.min.js"></script>
+		<script src="lib/typeahead.js"></script>
+		<script src="js/overheroes.js"></script>
+
+		<script id="t-heroes" type="text/template">
+			<% _.each(heroes, function(hero) { %>
+			<%= hero.name %>
+				<div class="inner">
+					<div class="left">
+						<img src="<%= hero.picture %>"/>
+					</div>
+					<div class="right">
+						<h2><%= hero.name %></h2>
+						<div id="abilities">
+							<% _.each(hero.abilities, function(ability) { %>
+								<div class="ability">
+									<div class="image-circle">
+										<img src="<%= imagePath %><%= ability.image %>"/>
+									</div>
+									<%= ability.name %>
+								</div>
+							<% }); %>
+						</div>
+					</div>
+				</div>
+			<% }); %>
+		</script>
+
+	</head>
+	<body>
+		<div class="topbar">
+			<div id="search">
+				<input class="typeahead" type="text" placeholder="Hero Name">
+			</div>
+		</div>
+		<div class="main-container">
+			<div id="heroes"></div>
+		</div>
+	</body>
+</html>
+
