@@ -27,7 +27,14 @@
 									<div class="image-circle">
 										<img src="<%= imagePath %><%= ability.image %>"/>
 									</div>
-									<%= ability.name %>
+									<p><%= ability.name %></p>
+									<p>
+										<% _.each(ability, function(value, key) { %>
+											<% if (key == "image" || key == "name") { return; } %>
+
+											<span><%= key %>: <%= value %></span> /
+										<% }); %>
+									</p>
 								</div>
 							<% }); %>
 						</div>
