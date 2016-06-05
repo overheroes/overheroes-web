@@ -19,22 +19,33 @@
 						<div class="title">
 							<p class="name"><%= hero.name %></p>
 						</div>
+						<div class="attributes">
+							<% _.each(hero.attributes, function(attribute) { %>
+								<div>
+									<%= attribute.name %>: <%= attribute.value %>
+								</div>
+							<% }) %>
+						</div>
 					</div>
 					<div class="right">
 						<div id="abilities">
 							<% _.each(hero.abilities, function(ability) { %>
 								<div class="ability">
-									<div class="image-circle">
-										<img src="<%= imagePath %><%= ability.image %>"/>
-									</div>
-									<p><%= ability.name %></p>
-									<p>
-										<% _.each(ability, function(value, key) { %>
-											<% if (key == "image" || key == "name") { return; } %>
 
-											<span><%= key %>: <%= value %></span> /
+									<div class="ability-name">
+										<div class="image-circle">
+											<img src="<%= imagePath %><%= ability.image %>"/>
+										</div>
+										<%= ability.name %> (<%= ability.key %>)
+									</div>
+									<div>
+										<% _.each(ability.stats, function(stat) { %>
+											<div class="stats">
+												<div class="stats-value"><%= stat.value %> <%= stat.unit %></div>
+												<div class="stats-name"><%= stat.name %></div>
+											</div>
 										<% }); %>
-									</p>
+									</div>
 								</div>
 							<% }); %>
 						</div>

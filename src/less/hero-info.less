@@ -1,97 +1,141 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,700,700italic);
-
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+
 @blue: #35415c;
 @darkblue: #012F4C;
 @markblue: #35415c;
 
 #heroes {
+    .hero {
+        position: relative;
+        background: #f3f3f3;
+        margin: 15px;
 
-  .hero {
-    position: relative;
-    padding: 10px 10px 10px 180px;
-    background: #f3f3f3;
-    margin: 15px;
-  }
-
-  .left {
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 180px;
-    height: 100%;
-
-    img {
-      max-width: 100%;
-    }
-    .title {
-      position: absolute;
-      margin-top: -38px;
-      margin-left: 15px;
+        &:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
     }
 
-    .name {
-      margin: 0;
-      font-family: 'Roboto Condensed', sans-serif;
-      font-size: 25px;
-      font-weight: 700;
-      font-style: italic;
-      color: #fff;
-      padding: 5px 10px 10px 10px;
-      border-radius: 2px;
-      box-decoration-break: clone;
-      background: @markblue;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.082)
+    .attributes {
+        margin-top: 20px;
+        padding: 5px;
     }
 
-    .name::first-letter {
-      font-size: 35px;
-      color: #ff9c00;
+    .left {
+        position: relative;
+        width: 120px;
+        float: left;
+        height: 100%;
+
+        @media (max-width: 500px) {
+            width: 60px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+        .title {
+            position: absolute;
+            margin-top: -26px;
+            margin-left: 15px;
+        }
+
+        .name {
+            margin: 0;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            color: #fff;
+            padding: 5px 10px 10px 10px;
+            border-radius: 2px;
+            box-decoration-break: clone;
+            background: @markblue;
+            box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.082)
+        }
+
+        .name::first-letter {
+            font-size: 24px;
+            color: #ff9c00;
+        }
+
     }
 
-  }
+    .right {
+        float: left;
+        height: 100%;
+        width: calc(~"100% - 120px");
 
-  .right {
-    height: 100%;
-    width: 100%;
+        @media (max-width: 500px) {
+            width: calc(~"100% - 60px");;
+        }
 
-    h2 {
-      margin-top: 0;
+        h2 {
+            margin-top: 0;
+        }
     }
-  }
 }
 
 #abilities {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 .ability {
-  padding-top: 5px;
-  padding-bottom: 5px;
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-left: 50px;
-  min-height: 60px;
+    background: #35415c;
+    color: #ff9c00;
+    position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    min-height: 60px;
 
-  .image-circle {
-    left: 0;
-    top: 0;
-    position: absolute;
-    height: 40px;
-    width: 40px;
-    border-radius: 50px;
-    background: gray;
-  }
+    .stats {
+        float: left;
+        border: solid 1px black;
+        padding: 4px 6px;
+        margin-right: -1px;
+        margin-top: -1px;
+    }
 
-  img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    height: auto;
-    max-width: 90%;
-    max-height: 65%;
-    color: black;
-  }
+    .stats-value {
+        text-align: center;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.stat-circle {
+
+}
+
+.ability-name {
+    position: relative;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 6px 0 30px;
+    color: white;
+
+    .image-circle {
+        left: 0;
+        top: 0;
+        position: absolute;
+        height: 26px;
+        width: 26px;
+    }
+
+    img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: auto;
+        max-width: 90%;
+        max-height: 65%;
+        color: black;
+    }
 }
