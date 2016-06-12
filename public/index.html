@@ -34,7 +34,9 @@
 
 									<div class="ability-name">
 										<div class="image-circle">
-											<img src="<%= imagePath %><%= ability.image %>"/>
+											<% if(ability.image) {%>
+												<img src="<%= imagePath %><%= ability.image %>"/>
+											<% } %>
 										</div>
 										<%= ability.name %> (<%= ability.key %>)
 									</div>
