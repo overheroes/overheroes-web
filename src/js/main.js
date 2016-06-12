@@ -4,6 +4,7 @@ $(function() {
     var heroTemplate;
     var imagePath = 'https://overwatch-data.herokuapp.com/img/heroes/';
     var searchInput = $('#search-input');
+    var classFilter = $('#class-filter');
 
     var compareFunctions = {
         name: function(a, b) {
@@ -27,6 +28,13 @@ $(function() {
         ));
     }
 
+    function update() {
+        var filteredHeroes = filterHeroes(heroes);
+        var sortedHeroes = sortHeroes(filteredHeroes);
+
+        renderHeroes(sortedHeroes);
+    }
+
     function filterByQuery(_heroes) {
         var substrRegex = new RegExp(searchInput.val().toLowerCase(), 'i');
 
@@ -35,14 +43,21 @@ $(function() {
         });
     }
 
-    function update() {
-        var filteredHeroes = filterHeroes(heroes);
-        var sortedHeroes = sortHeroes(filteredHeroes);
+    function filterByClass(_heroes) {
+        var selectedClass = classFilter.val();
 
-        renderHeroes(sortedHeroes);
+        if (selectedClass == 'all') {
+            return _heroes;
+        }
+
+        return _heroes.filter(function(hero) {
+            return hero.class == selectedClass;
+        });
     }
 
     function filterHeroes(_heroes) {
+        _heroes = filterByClass(_heroes);
+
         return filterByQuery(_heroes);
     }
 
@@ -53,11 +68,11 @@ $(function() {
     }
 
     function init(response) {
-        console.log('test');
         heroTemplate = $('#t-heroes').html();
         responseObj = JSON.parse(response);
         heroes = responseObj.heroes;
         searchInput.keyup(update);
+        classFilter.change(update);
         update();
     }
 

@@ -25,6 +25,10 @@ body {
   height: 40px;
   background: #2b2b2b;
 }
+.topbar > div {
+  float: left;
+  margin-left: 10px;
+}
 .main-container {
   position: relative;
   height: 100%;
