@@ -6,8 +6,14 @@
 @markblue: #35415c;
 
 #heroes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
     .hero {
         position: relative;
+        flex-basis: 600px;
+        flex-grow: 1;
         background: #f3f3f3;
         margin: 0 15px 15px 15px;
 
