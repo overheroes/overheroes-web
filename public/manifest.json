@@ -14,8 +14,8 @@
         "sizes": "144x144",
         "type": "image/png"
     }, {
-        "src": "icon.png",
-        "sizes": "192x192",
+        "src": "splash.png",
+        "sizes": "500x500",
         "type": "image/png"
     }],
     "start_url": "/index.html",
