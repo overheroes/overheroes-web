@@ -80,7 +80,7 @@ $(function() {
         console.log('Service Worker is supported');
         navigator.serviceWorker.register('sw.js').then(function(reg) {
             reg.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
-                alert(sub.endpoint);
+                $('#test').html(sub.endpoint);
             });
         }).catch(function(err) {
             console.log(':^(', err);
