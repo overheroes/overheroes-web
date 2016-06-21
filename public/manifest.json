@@ -1,6 +1,7 @@
 {
     "name": "Overheroes",
     "short_name": "heroes",
+    "gcm_sender_id": "719284092984",
     "icons": [{
         "src": "icon-192x192.png",
         "sizes": "192x192",
