@@ -1,20 +1,19 @@
-var express = require('express');
-var app = express();
-var request = require('request');
-var port = 5000;
+const express = require('express');
+const app = express();
+const request = require('request');
+const port = 5000;
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public', { maxAge: 14400000 }));
 
-app.listen(process.env.PORT  || port);
+app.listen(process.env.PORT || port);
 
-app.get('/heroes', function(req, res) {
-    request('https://overwatch-data.herokuapp.com/data/heroes.json', function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            res.send(body);
-        }
-    })
+app.get('/heroes', (req, res) => {
+  request('https://overwatch-data.herokuapp.com/data/heroes.json', (error, response, body) => {
+    if (!error && response.statusCode == 200) {
+      res.send(body);
+    }
+  })
 });
-
 
 console.log('started at port: ' + port);
 

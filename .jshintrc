@@ -14,16 +14,21 @@
     "devel": true,
     "node": true,
     "jquery": true,
+    "esversion": 6,
+    "sub": true,
 
     "globals" :  {
+        "self": true,
+        "caches": true,
         "exports": true,
         "require": true,
         "process": true,
         "module": true,
-        "d3": true,
         "define": true,
-        "L": true,
-        "got": true
+        "got": true,
+        "requre": true,
+        "fs": true,
+        "_": true
     }
 }
 
