@@ -15,33 +15,34 @@
 		<script id="t-heroes" type="text/template">
 			<% _.each(heroes, function(hero) { %>
 				<div class="hero">
-					<div class="left">
-						<img src="<%= imagePath %><%= hero.picture %>"/>
+					<div class="top">
+						<img style="background-image: url(<%= imagePath %><%= hero.picture %>)"/>
 						<div class="title">
-							<p class="name"><%= hero.name %></p>
+
 						</div>
+						<div class="name"><%= hero.name %></div>
 						<div class="attributes">
 							<% _.each(hero.attributes, function(attribute) { %>
 								<div>
-									<%= attribute.name %>: <%= attribute.value %>
+									<span><%= attribute.name %>:</span> <span><%= attribute.value %></span>
 								</div>
 							<% }) %>
 						</div>
 					</div>
-					<div class="right">
+					<div class="bottom">
 						<div id="abilities">
 							<% _.each(hero.abilities, function(ability) { %>
 								<div class="ability">
 
 									<div class="ability-name">
-										<div class="image-circle">
-											<% if(ability.image) {%>
-												<img src="<%= imagePath %><%= ability.image %>"/>
-											<% } %>
-										</div>
 										<%= ability.name %> (<%= ability.key %>)
 									</div>
 									<div>
+										<div class="stats image-circle">
+											<% if(ability.image) {%>
+											<img src="<%= imagePath %><%= ability.image %>"/>
+											<% } %>
+										</div>
 										<% _.each(ability.stats, function(stat) { %>
 											<div class="stats">
 												<div class="stats-value"><%= stat.value %> <%= stat.unit %></div>
@@ -59,24 +60,23 @@
 
 	</head>
 	<body>
-	<div id="test"></div>
-		<div class="topbar">
-			<div id="search">
-				<input id="search-input" type="text" placeholder="Hero Name">
-			</div>
-			<div>
-				<select id="class-filter" title="class">
-					<option value="all">All</option>
-					<option value="offense">Offense</option>
-					<option value="defense">Defense</option>
-					<option value="support">Support</option>
-					<option value="tank">Tank</option>
-				</select>
-			</div>
+	<div class="topbar">
+		<div id="search">
+			<input id="search-input" type="text" placeholder="Hero Name">
 		</div>
-		<div class="main-container">
-			<div id="heroes"></div>
+		<div>
+			<select id="class-filter" title="class">
+				<option value="all">All</option>
+				<option value="offense">Offense</option>
+				<option value="defense">Defense</option>
+				<option value="support">Support</option>
+				<option value="tank">Tank</option>
+			</select>
 		</div>
+	</div>
+	<div class="main-container">
+		<div id="heroes"></div>
+	</div>
 	</body>
 </html>
 
