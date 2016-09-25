@@ -6,24 +6,58 @@
 @markblue: #35415c;
 @lightblue: #A2B9D4;
 
-#heroes {
+body {
     background: #dde2e8;
+}
+
+
+#heroes {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
     flex-wrap: wrap;
+
 
     .hero {
         position: relative;
         flex-basis: 300px;
         width: 300px;
         background: white;
-        margin: 15px;
         box-shadow: 0 0 4px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);
+        margin: 10px;
 
-        @media (max-width: 330px) {
+        @media (max-width: 320px) {
             margin-left: 0;
         }
+
+        @media (min-width: 380px) {
+            flex-basis: 360px;
+            width: 360px;
+
+
+            .top {
+                .title {
+                    width: 245px;
+                }
+            }
+
+            .ability {
+                .stats {
+                    line-height: 20px;
+                    font-size: 16px;
+                }
+
+
+                .image-circle {
+                    height: 48px;
+                }
+            }
+
+            .ability-name {
+                font-size: 16px;
+            }
+        }
+
 
         &:after {
             content: '';
