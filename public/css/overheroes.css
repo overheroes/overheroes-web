@@ -80,13 +80,13 @@ body {
   }
   #heroes .hero .ability .stats {
     line-height: 20px;
-    font-size: 16px;
+    font-size: 14px;
   }
   #heroes .hero .ability .image-circle {
     height: 48px;
   }
   #heroes .hero .ability-name {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 #heroes .hero:after {
