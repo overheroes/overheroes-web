@@ -11,19 +11,6 @@ self.addEventListener('install', event => {
   );
 });
 
-// TODO: Pushnotification mit showcase einbauen?
-self.addEventListener('push', event => {
-  var title = 'Push message';
-  event.waitUntil(self.registration.showNotification(
-    title,
-    {
-      body: 'Overwatch',
-      icon: 'icon.png',
-      tag: '#overwatch'
-    })
-  );
-});
-
 self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open('overheroes')
